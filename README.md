@@ -30,6 +30,7 @@ to house the issues, it's fine to leave it empty.
 ### Running
 
 ```shell
+. venv/bin/activate  # if not just done above
 python repo_tags.py
 ```
 
@@ -44,8 +45,8 @@ leave it running.
 
 ## TODO:
 
-  - [ ] handle organizations properly, currently mixed in
+  - [x] handle organizations properly, currently mixed in
         with user repos. with bad urls
-  - [ ] update description for existing repositories when
+  - [x] update description for existing repositories when
         the description changes
 
