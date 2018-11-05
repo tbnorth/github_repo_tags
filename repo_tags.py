@@ -77,8 +77,7 @@ for k, v in list(repos.items()):
     repos["%s|%s" % k] = v
     del repos[k]
 for k, v in list(issues.items()):
-    if True or 'issue' in v:  # why wouldn't it be?
-        del v['issue']
+    del v['issue']
     issues["%s|%s" % k] = v
     del issues[k]
 json.dump(
