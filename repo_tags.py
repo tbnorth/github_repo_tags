@@ -73,8 +73,14 @@ for (repo, org) in repos:
         print("Waiting %d seconds" % sleep)
         time.sleep(sleep)
 
-for i in issues.values():
-    del i['issue']
+for k, v in list(repos.items()):
+    repos["%s|%s" % k] = v
+    del repos[k]
+for k, v in list(issues.items()):
+    if True or 'issue' in v:  # why wouldn't it be?
+        del v['issue']
+    issues["%s|%s" % k] = v
+    del issues[k]
 json.dump(
     {'repos': repos, 'issues': issues}, open("_last_run.json", 'w'), indent=4
 )
