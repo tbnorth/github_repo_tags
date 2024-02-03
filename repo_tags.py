@@ -22,12 +22,13 @@ else:
     USER = input("Github username: ")
     PWORD = getpass()
 
-GH = Github(USER, PWORD)
+GH = Github(PWORD)
 
 repos = {}
 print("Reading repos")
-for repo in GH.get_user().get_repos():
+for repo_i, repo in enumerate(GH.get_user().get_repos()):
     # includes repos. in org.s and from other users
+    print(f"{repo_i: 4d}: {repo.name}")
     org = repo.organization.login if repo.organization else repo.owner.login
     key = (repo.name, org)
     repos[key] = {'desc': repo.description, 'url': repo.url, 'org': org}
